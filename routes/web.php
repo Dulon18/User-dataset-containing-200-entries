@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    
+    $users=User::all();
+    return view('index',compact('users'));
+});
+Route::get('/product', function () {
     $products=Product::all();
-    return view('welcome',compact('products'));
+    return view('product',compact('products'));
 });
